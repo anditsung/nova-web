@@ -5,7 +5,9 @@
         @if (Route::has('nova.login'))
             <div class="ml-auto px-4 py-4">
                 @auth
-                    <a class="px-8 py-2 rounded-lg font-bold text-black no-underline hover:bg-60" href="{{ route('nova.login') }}">Admin</a>
+                    @if(Auth()->user()->can('viewNova'))
+                        <a class="px-8 py-2 rounded-lg font-bold text-black no-underline hover:bg-60" href="{{ route('nova.login') }}">Admin</a>
+                    @endif
                     <a
                         href="{{ route('nova.logout') }}"
                         class="ml-2 px-8 py-2 rounded-lg font-bold text-black no-underline hover:bg-60"
