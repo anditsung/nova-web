@@ -48,7 +48,7 @@ class NovaWebServiceProvider extends ServiceProvider
         ], 'novaweb-package');
 
         $this->publishes([
-            __DIR__ . '/../dist' => public_path('/vendor/novaweb')
+            __DIR__ . '/../public' => public_path('/vendor/novaweb')
         ], 'novaweb-public');
 
         $this->publishes([
