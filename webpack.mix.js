@@ -15,8 +15,8 @@ mix
     .webpackConfig({
         resolve: {
             alias: {
-                // "@nova": '../../../../vendor/laravel/nova/resources/js'
-                "@nova": '../../vendor/laravel/nova/resources/js'
+                "@nova": '../../../../vendor/laravel/nova/resources/js'
+                //"@nova": '../../vendor/laravel/nova/resources/js'
             }
         }
     })
