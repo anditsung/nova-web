@@ -44,6 +44,10 @@ class NovaWebServiceProvider extends ServiceProvider
         ], 'novaweb-mix');
 
         $this->publishes([
+            __DIR__ . '/../tailwind.js' => base_path('tailwind.js')
+        ], 'novaweb-tailwind');
+
+        $this->publishes([
             __DIR__ . '/../package.json' => base_path('package.json')
         ], 'novaweb-package');
 

@@ -1,5 +1,5 @@
 const mix = require('laravel-mix');
-
+let tailwindcss = require('tailwindcss')
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -12,25 +12,41 @@ const mix = require('laravel-mix');
  */
 
 mix
-    .webpackConfig({
-        resolve: {
-            alias: {
-                "@nova": '../../../../vendor/laravel/nova/resources/js'
-                //"@nova": '../../vendor/laravel/nova/resources/js'
-            }
-        }
-    })
-    .js('resources/js/app.js', '')
+    .js('resources/js/app.js', 'public/vendor/novaweb')
     .extract([
-        'vue',
-        'vue-toasted',
-        'axios'
+        'vue'
     ])
-    .sass('resources/sass/google-font-nunito.scss', '')
+    .styles('resources/sass/google-font-nunito.scss', 'public/vendor/novaweb/google-font-nunito.css')
+    .postCss('resources/sass/app.css', 'public/vendor/novaweb', [
+        require('postcss-import'),
+        tailwindcss('tailwind.js'),
+    ])
     .copyDirectory('resources/sass/fonts', 'public/vendor/novaweb/fonts')
-    //.setPublicPath('dist')
     .setPublicPath('public/vendor/novaweb')
-    .options({
-        processCssUrls: false,
-    })
-    .version()
+if (mix.inProduction()) {
+    mix.version()
+}
+
+// mix
+//     .webpackConfig({
+//         resolve: {
+//             alias: {
+//                 "@nova": '../../../../vendor/laravel/nova/resources/js'
+//                 //"@nova": '../../vendor/laravel/nova/resources/js'
+//             }
+//         }
+//     })
+//     .js('resources/js/app.js', '')
+//     .extract([
+//         'vue',
+//         'vue-toasted',
+//         'axios'
+//     ])
+//     .sass('resources/sass/google-font-nunito.scss', '')
+//     .copyDirectory('resources/sass/fonts', 'public/vendor/novaweb/fonts')
+//     //.setPublicPath('dist')
+//     .setPublicPath('public/vendor/novaweb')
+//     .options({
+//         processCssUrls: false,
+//     })
+//     .version()
