@@ -5,6 +5,10 @@
         @if (Route::has('nova.login'))
             <div class="ml-auto px-4 py-4">
                 @auth
+                    @if(Auth()->user()->can('viewTelescope'))
+                        <a class="px-8 py-2 rounded-lg font-bold text-black no-underline hover:bg-gray-400" href="{{ url('telescope') }}">Telescope</a>
+                    @endif
+
                     @if(Auth()->user()->can('viewNova'))
                         <a class="px-8 py-2 rounded-lg font-bold text-black no-underline hover:bg-gray-400" href="{{ route('nova.login') }}">Admin</a>
                     @endif
