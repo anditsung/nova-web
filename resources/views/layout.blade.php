@@ -30,6 +30,8 @@
 {{--                            'apiToken' => Auth()->user()->api_token ?? null,--}}
 {{--                        ]) !!}--}}
 {{--    </script>--}}
+    @stack('script')
+
     <script src="{{ mix('manifest.js', 'vendor/novaweb') }}"></script>
     <script src="{{ mix('vendor.js', 'vendor/novaweb') }}"></script>
     <script src="{{ mix('app.js', 'vendor/novaweb') }}"></script>
