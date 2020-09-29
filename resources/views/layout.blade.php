@@ -12,13 +12,15 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('app.css', 'vendor/novaweb') }}">
+
+    <!-- addon styles -->
     @yield('styles')
 
     <!-- Custom Meta Data -->
     @include('nova::partials.meta')
 
 </head>
-<body class="bg-gray-200">
+<body class="bg-gray-200 min-h-screen antialiased">
     <div id="app">
         @yield('content')
     </div>
@@ -30,11 +32,12 @@
 {{--                            'apiToken' => Auth()->user()->api_token ?? null,--}}
 {{--                        ]) !!}--}}
 {{--    </script>--}}
+
+    <!-- addon scripts -->
     @stack('script')
 
     <script src="{{ mix('manifest.js', 'vendor/novaweb') }}"></script>
     <script src="{{ mix('vendor.js', 'vendor/novaweb') }}"></script>
     <script src="{{ mix('app.js', 'vendor/novaweb') }}"></script>
-
 </body>
 </html>
