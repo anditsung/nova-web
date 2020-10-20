@@ -11,8 +11,6 @@ module.exports = {
         // purgeLayersByDefault: true,
     },
 
-    purge: [],
-
     theme: {
         extends: {},
 
@@ -35,7 +33,12 @@ module.exports = {
         },
     },
 
-    variants: {},
+    variants: {
+        backgroundColor: ['responsive', 'first', 'last', 'even', 'odd', 'hover', 'focus'],
+        tableLayout: ['responsive', 'hover', 'focus'],
+    },
 
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/ui'),
+    ],
 }
