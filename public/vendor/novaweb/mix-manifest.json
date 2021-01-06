@@ -1,6 +1,7 @@
 {
-    "/vendor.js": "/vendor.js?id=435a4636f3ecf60c7417",
-    "/app.js": "/app.js?id=5d11f015c7bb853a44fd",
-    "/google-font-nunito.css": "/google-font-nunito.css?id=8fa6b49f5d5562efefba",
-    "/manifest.js": "/manifest.js?id=2d315777967b6001bcf1"
+    "/app.js": "/app.js?id=8f0828787762d0cb4db3",
+    "/app.css": "/app.css?id=6fd29b7e12bca2850376",
+    "/manifest.js": "/manifest.js?id=3c768977c2574a34506e",
+    "/vendor.js": "/vendor.js?id=8a52c6b115455327af53",
+    "/google-font-nunito.css": "/google-font-nunito.css?id=56bf651a2efc8ebe0a20"
 }
