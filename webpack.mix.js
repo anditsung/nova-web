@@ -6,7 +6,8 @@ mix
     .js('resources/js/app.js', 'public/vendor/novaweb')
     .extract([
         'vue',
-        'axios'
+        'axios',
+        'flatpickr',
     ])
 
     .sass('resources/sass/app.scss', 'public/vendor/novaweb')
@@ -25,6 +26,13 @@ mix
     .styles('resources/sass/google-font-nunito.scss', 'public/vendor/novaweb/google-font-nunito.css')
     .copyDirectory('resources/sass/fonts', 'public/vendor/novaweb/fonts')
     .setPublicPath('public/vendor/novaweb')
+    .webpackConfig({
+        resolve: {
+            alias: {
+                Nova: path.resolve(__dirname, 'nova/resources/js')
+            },
+        },
+    })
 
 if (mix.inProduction()) {
     mix.version()

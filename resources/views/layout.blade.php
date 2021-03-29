@@ -39,5 +39,14 @@
     <script src="{{ mix('manifest.js', 'vendor/novaweb') }}"></script>
     <script src="{{ mix('vendor.js', 'vendor/novaweb') }}"></script>
     <script src="{{ mix('app.js', 'vendor/novaweb') }}"></script>
+
+    <script>
+        window.WebNova = new CreateWebNova()
+    </script>
+
+    <!-- Start WebNova -->
+    <script>
+        WebNova.liftOff()
+    </script>
 </body>
 </html>
