@@ -1,7 +1,13 @@
-require('./bootstrap')
+import Vue from 'vue';
+import NovaWeb from './NovaWeb'
 
-import Vue from "vue";
+Vue.config.productionTip = false
 
-const app = new Vue([
+import './fields'
+import './components'
 
-]).$mount('#app');
+;(function () {
+    this.CreateNovaWeb = function (config) {
+        return new NovaWeb(config)
+    }
+}).call(window)

@@ -28,7 +28,7 @@ class NovaWebServiceProvider extends ServiceProvider
     protected function registerPublishing()
     {
         $this->publishes([
-            __DIR__ . '/../resources/sass/fonts' => resource_path('fonts')
+            __DIR__ . '/../resources/fonts' => resource_path('fonts')
         ], 'novaweb-fonts');
 
         $this->publishes([
@@ -36,15 +36,15 @@ class NovaWebServiceProvider extends ServiceProvider
         ], 'novaweb-js');
 
         $this->publishes([
-            __DIR__ . '/../resources/sass' => resource_path('sass')
-        ], 'novaweb-sass');
+            __DIR__ . '/../resources/css' => resource_path('css')
+        ], 'novaweb-css');
 
         $this->publishes([
             __DIR__ . '/../webpack.mix.js' => base_path('webpack.mix.js')
         ], 'novaweb-mix');
 
         $this->publishes([
-            __DIR__ . '/../tailwind.js' => base_path('tailwind.js')
+            __DIR__ . '/../tailwind.config.js' => base_path('tailwind.config.js')
         ], 'novaweb-tailwind');
 
         $this->publishes([
@@ -56,8 +56,16 @@ class NovaWebServiceProvider extends ServiceProvider
         ], 'novaweb-public');
 
         $this->publishes([
-            __DIR__ . '/../resources/views/welcome.blade.php' => resource_path('views/welcome.blade.php')
-        ], 'novaweb-welcome');
+            __DIR__ . '/../resources/views' => resource_path('views')
+        ], 'novaweb-view');
+
+        $this->publishes([
+            __DIR__ . '/../routes/web.php' => base_path('./routes/web.php')
+        ], 'novaweb-route');
+
+        $this->publishes([
+            __DIR__ . '/Http/Controllers/WebController.php' => base_path('./App/Http/Controllers/WebController.php')
+        ], 'novaweb-controller');
     }
 
     /**

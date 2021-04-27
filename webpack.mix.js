@@ -1,30 +1,26 @@
 const mix = require('laravel-mix');
-let tailwindcss = require('tailwindcss')
-require('laravel-mix-purgecss')
+const path = require('path');
 
-mix
-    .js('resources/js/app.js', 'public/vendor/novaweb')
-    .extract([
-        'vue',
-        'axios',
-        'flatpickr',
+/*
+ |--------------------------------------------------------------------------
+ | Mix Asset Management
+ |--------------------------------------------------------------------------
+ |
+ | Mix provides a clean, fluent API for defining some Webpack build steps
+ | for your Laravel applications. By default, we are compiling the CSS
+ | file for the application as well as bundling up all the JS files.
+ |
+ */
+
+mix.js('resources/js/app.js', 'public/vendor/novaweb')
+    .vue()
+    .extract()
+    .postCss('resources/css/app.css', '', [
+        require('postcss-import'),
+        require('tailwindcss')
     ])
-
-    .sass('resources/sass/app.scss', 'public/vendor/novaweb')
-    .options({
-        processCssUrls: false,
-        postCss: [
-            tailwindcss('tailwind.js')
-        ]
-    })
-    .purgeCss({
-        enabled: mix.inProduction(),
-        folders: ['src', 'templates'],
-        extensions: ['html', 'js', 'php', 'vue'],
-    })
-
-    .styles('resources/sass/google-font-nunito.scss', 'public/vendor/novaweb/google-font-nunito.css')
-    .copyDirectory('resources/sass/fonts', 'public/vendor/novaweb/fonts')
+    .styles('resources/css/google-font-nunito.scss', 'public/vendor/novaweb/google-font-nunito.css')
+    .copy('resources/fonts', 'public/vendor/novaweb/fonts')
     .setPublicPath('public/vendor/novaweb')
     .webpackConfig({
         resolve: {
@@ -33,7 +29,8 @@ mix
             },
         },
     })
+    .version()
 
-if (mix.inProduction()) {
-    mix.version()
+if (! mix.inProduction()) {
+    mix.sourceMaps()
 }
