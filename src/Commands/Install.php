@@ -39,6 +39,9 @@ class Install extends Command
         $this->info('Publishing novaweb view');
         $this->call('vendor:publish', ['--tag' => 'novaweb-view', '--force' => true]);
 
+        $this->info('Publishing novaweb app');
+        $this->call('vendor:publish', ['--tag' => 'novaweb-app', '--force' => true]);
+
         $this->info('Publishing novaweb route');
         $this->call('vendor:publish', ['--tag' => 'novaweb-route', '--force' => true]);
 

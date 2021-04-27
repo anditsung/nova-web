@@ -60,6 +60,10 @@ class NovaWebServiceProvider extends ServiceProvider
         ], 'novaweb-view');
 
         $this->publishes([
+            __DIR__ . '/NovaWeb.php' => base_path('/app/NovaWeb.php')
+        ], 'novaweb-app');
+
+        $this->publishes([
             __DIR__ . '/../routes/web.php' => base_path('./routes/web.php')
         ], 'novaweb-route');
 
